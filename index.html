@@ -7,199 +7,31 @@
   <title>Logeshwara | Game Developer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* Existing styles... */
 
-    body {
-      background: #0d0d0d;
-      font-family: 'Roboto', sans-serif;
-      color: #ffffff;
-    }
-
-    header {
-      position: relative;
-      height: 50vh; /* Adjust the height of the header */
-      background: url('luckylotusSymbol.png') center/cover no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-
-    header div {
-      background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for text readability */
-      padding: 3rem 1rem;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      font-family: 'Orbitron', sans-serif;
-      text-shadow: 0 0 5px #00f7ff;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-    }
-
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      color: #0fffc1;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #0fffc1;
-      display: inline-block;
-    }
-
-    /* About Section */
-    .about-container {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .about-content {
-      flex: 1;
-      padding: 2rem;
-      background: #1a1a1a;
-      border-radius: 10px;
-      max-width: 55%;
-      margin-right: 2rem;
-    }
-
-    .about-image {
-      max-width: 200px;
-      object-fit: contain;
+    .models-container {
+      display: none; /* Initially hidden */
       margin-top: 1rem;
-    }
-
-    /* Projects Section */
-    .projects-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .project {
       background: #1a1a1a;
       padding: 1.5rem;
       border-radius: 10px;
-      border: 1px solid #0fffc1;
-      box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
-      text-align: center;
-      transition: 0.3s;
     }
 
-    .project img {
+    .model {
+      margin-bottom: 1rem;
+    }
+
+    .model img {
       width: 100%;
       border-radius: 10px;
+    }
+
+    .toggle-button {
+      cursor: pointer;
+      color: #0fffc1;
+      text-decoration: underline;
       margin-top: 1rem;
     }
-
-    .project:hover {
-      background: #262626;
-      transform: scale(1.02);
-      box-shadow: 0 0 15px #00f7ff;
-    }
-
-    /* Skills Section */
-    .skills-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .skill {
-      background: #1a1a1a;
-      padding: 1.5rem;
-      text-align: center;
-      border: 1px solid #0fffc1;
-      border-radius: 10px;
-      font-size: 1.1rem;
-      color: #0fffc1;
-      transition: 0.3s;
-    }
-
-    .skill:hover {
-      background: #262626;
-      box-shadow: 0 0 10px #00bfff;
-    }
-
-    /* Contact Section */
-    .contact-container {
-      margin-bottom: 2rem;
-    }
-
-    .contact-item {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-
-    .contact-item a {
-      color: #0fffc1;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .contact-item a:hover {
-      color: #00f7ff;
-      text-shadow: 0 0 10px #00f7ff;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #888;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      header {
-        height: 40vh;
-      }
-
-      .about-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .about-content {
-        margin-right: 0;
-        max-width: 100%;
-      }
-
-      .projects-container {
-        grid-template-columns: 1fr;
-      }
-
-      .skills-container {
-        grid-template-columns: 1fr;
-      }
-    }
-.project-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.project-link:hover {
-  color: inherit; /* Keep the color consistent on hover */
-}
-
   </style>
 </head>
 <body>
@@ -211,71 +43,61 @@
   </header>
 
   <section>
-    <div class="about-container">
-      <div class="about-content">
-        <h2 class="section-title">About Me</h2>
-        <p>I’m a game developer currently pursuing my 2nd year in B.E CSE (Cyber Security) at Dr. Mahalingam College of Engineering and Technology. I strive to be the greatest game developer in the world. I have developed a 2D game called "Space To Earth".and developing more and more games. seeking help to make the Greatest game of all time . </p>
-      </div>
-      <img src="Lucky_lotus_logo.png" alt="Lucky Lotus Logo" class="about-image">
-    </div>
-  </section>
-
-  <section>
     <h2 class="section-title">Projects</h2>
     <div class="projects-container">
 
-<div class="project">
-  <a href="https://play.google.com/store/apps/details?id=com.godotengine.spacetoearth&pcampaignid=web_share" target="_blank" class="project-link">
-    <h3>Space to Earth</h3>
-    <p>A 2D game where players guide a ball from a spaceship back to Earth through challenging levels , and different obstacles. the difficulty increases as much as you play. can you escape to the end?</p>
-    <img src="ste_logo.png" alt="Space to Earth Game">
-  </a>
-</div>
+      <div class="project">
+        <a href="https://play.google.com/store/apps/details?id=com.godotengine.spacetoearth&pcampaignid=web_share" target="_blank" class="project-link">
+          <h3>Space to Earth</h3>
+          <p>A 2D game where players guide a ball from a spaceship back to Earth through challenging levels, and different obstacles. The difficulty increases as much as you play. Can you escape to the end?</p>
+          <img src="ste_logo.png" alt="Space to Earth Game">
+        </a>
+      </div>
 
       <div class="project">
-<a href="https://logeshwara554.github.io/AI_chatbot" target="_blank" class="project-link">
-        <h3>AI Chatbot</h3>
-        <p>An AI-powered chatbot that can answer questions and learns from you . Made with help of my Friend Muthu. she is a AI developer and a smart worker.Thanks a lot to her.</p>
-        <img src="muthu_logo.png" alt="AI Chatbot">  </a>
+        <a href="https://logeshwara554.github.io/AI_chatbot" target="_blank" class="project-link">
+          <h3>AI Chatbot</h3>
+          <p>An AI-powered chatbot that can answer questions and learns from you. Made with help from my friend Muthu, an AI developer and a smart worker. Thanks a lot to her.</p>
+          <img src="muthu_logo.png" alt="AI Chatbot">  
+        </a>
       </div>
-      
-      <div class="project">
-<a href="https://logeshwara554.github.io/AI_chatbot" target="_blank" class="project-link">
-        <h3>My Models</h3>
-        <p>An AI-powered chatbot that can answer questions and learns from you . Made with help of my Friend Muthu. she is a AI developer and a smart worker.Thanks a lot to her.</p>
-        <img src="muthu_logo.png" alt="AI Chatbot">  </a>
-      </div>
-      
+
       <div class="project">
         <h3>Upcoming Games</h3>
         <p>New experimental games are under development. Stay tuned!</p>
       </div>
+
+      <div class="project">
+        <h3 class="toggle-button" onclick="toggleModels()">My Models</h3>
+        <div class="models-container" id="modelsContainer">
+          <div class="model">
+            <h4>Model 1</h4>
+            <img src="model1_image.png" alt="Model 1 Description">
+            <p>Description of Model 1.</p>
+          </div>
+          <div class="model">
+            <h4>Model 2</h4>
+            <img src="model2_image.png" alt="Model 2 Description">
+            <p>Description of Model 2.</p>
+          </div>
+          <!-- Add more models as needed -->
+        </div>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2 class="section-title">Skills</h2>
-    <div class="skills-container">
-      <div class="skill">Godot</div>
-      <div class="skill">2D Animation</div>
-      <div class="skill">3D Modeling</div>
-      <div class="skill">Blender3D</div>
-      <div class="skill">Python</div>
-      <div class="skill">Java</div>
-      <div class="skill">Cyber Security</div>
-      <div class="skill">AI</div>
-    </div>
-  </section>
+  <script>
+    function toggleModels() {
+      const modelsContainer = document.getElementById('modelsContainer');
+      if (modelsContainer.style.display === 'none' || modelsContainer.style.display === '') {
+        modelsContainer.style.display = 'block';
+      } else {
+        modelsContainer.style.display = 'none';
+      }
+    }
+  </script>
 
-  <section>
-    <h2 class="section-title">Contact</h2>
-    <div class="contact-container">
-      <div class="contact-item">Email: <a href="mailto:logeshwara554@gmail.com">logeshwara554@gmail.com</a></div>
-      <div class="contact-item">Phone: <a href="tel:+919361947452">9361947452</a></div>
-      <div class="contact-item">GitHub: <a href="https://github.com/logeshwara554" target="_blank">logeshwara554</a></div>
-      <div class="contact-item">LinkedIn: <a href="https://www.linkedin.com/in/logeshwara-palanisamy" target="_blank">logeshwara-palanisamy</a></div>
-    </div>
-  </section>
+  <!-- Remaining sections... -->
 
   <footer>
     &copy; 2025 Logeshwara. Built with 💙 and neon vibes.
