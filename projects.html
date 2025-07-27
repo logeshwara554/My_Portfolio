@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects - Logeshwara</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #0d0d0d;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 2rem;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 15px;
+      padding: 1rem;
+      box-shadow: 0 0 10px rgba(0,255,255,0.1);
+      transition: 0.3s;
+    }
+    .card:hover {
+      box-shadow: 0 0 20px rgba(0,255,255,0.3);
+    }
+    h1 {
+      text-align: center;
+      color: cyan;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Projects</h1>
+  <div class="container">
+    <div class="card">
+      <h2>Space to Earth</h2>
+      <p>A 2D ball game made in Godot where the player navigates from a spaceship to Earth.</p>
+    </div>
+    <div class="card">
+      <h2>Semesteralsubdue</h2>
+      <p>A fun and educational board game for students to learn and conquer six semesters.</p>
+    </div>
+    <div class="card">
+      <h2>Beast Chatbox</h2>
+      <p>A console-style AI chatbox with future plans for voice and animated avatars.</p>
+    </div>
+    <!-- Add more project cards as needed -->
+  </div>
+</body>
+</html>
