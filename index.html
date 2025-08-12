@@ -235,6 +235,8 @@ body {
 
   <button class="toggle-mode" onclick="toggleMode()">☀️ Light</button>
 
+
+
   <header>
     <div class="name" id="typed-name"></div>
     <div class="subtitle">Game Developer · Programmer · Cybersecurity Enthusiast</div>
@@ -248,6 +250,9 @@ body {
     <p>     ...</p>
   <a href="resume.pdf" download class="btn" style="margin-top: 1.5rem;">Download Resume</a>
   </section>
+
+
+
 
   <section class="section">
     <h2>Education</h2>
@@ -315,6 +320,142 @@ body {
     <button class="btn" onclick="location.href='projects.html'">Explore Projects</button>
   </section>
 
+
+<section class="section stats-section" id="stats">
+  <h2>My Journey in Numbers</h2>
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-icon">🎮</div>
+      <div class="stat-number" data-target="5">0</div>
+      <div class="stat-label">Games Developed</div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">🖥️</div>
+      <div class="stat-number" data-target="12">0</div>
+      <div class="stat-label">Projects Completed</div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">☕</div>
+      <div class="stat-number" data-target="1500">0</div>
+      <div class="stat-label">Cups of Coffee</div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">👨‍💻</div>
+      <div class="stat-number" data-target="3500">0</div>
+      <div class="stat-label">Hours of Coding</div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #e0c3fc;
+  }
+
+  .stats-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(110deg, #8ec5fc, #e0c3fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .stat {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(224, 195, 252, 0.3);
+    border-radius: 20px;
+    padding: 2rem 2.5rem;
+    width: 180px;
+    box-shadow: 0 0 15px #8ec5fc88;
+    transition: transform 0.3s ease;
+  }
+  .stat:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px #e0c3fccc;
+  }
+
+  .stat-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #8ec5fc;
+    text-shadow: 0 0 10px #8ec5fc;
+  }
+
+  .stat-label {
+    margin-top: 0.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #d1c4fc;
+  }
+
+  @media (max-width: 600px) {
+    .stats-grid {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .stat {
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+</style>
+
+<script>
+  // Animate counters when in view
+  const counters = document.querySelectorAll('.stat-number');
+
+  const options = {
+    threshold: 0.5
+  };
+
+  function animateCount(el, target) {
+    let count = 0;
+    const increment = target / 100;
+    const interval = setInterval(() => {
+      count += increment;
+      if (count >= target) {
+        el.textContent = target.toLocaleString();
+        clearInterval(interval);
+      } else {
+        el.textContent = Math.floor(count).toLocaleString();
+      }
+    }, 20);
+  }
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.getAttribute('data-target'), 10);
+        animateCount(el, target);
+        observer.unobserve(el);
+      }
+    });
+  }, options);
+
+  counters.forEach(counter => {
+    observer.observe(counter);
+  });
+</script>
+
+
   <section class="section">
     <h2>Models</h2>
 
@@ -342,19 +483,390 @@ body {
     <button class="btn" onclick="location.href='models.html'">Explore Models</button>
   </section>
 
-<section class="section">
+<!-- SKILLS SECTION -->
+<section class="section skills-section" id="skills" data-aos="fade-up">
   <h2>Skills</h2>
-  <div class="portfolio-grid">
-    <div class="card" data-aos="zoom-in"><i data-lucide="terminal" class="icon"></i><h4>Python</h4></div>
-    <div class="card" data-aos="zoom-in" data-aos-delay="100"><i data-lucide="code" class="icon"></i><h4>Java</h4></div>
-    <div class="card" data-aos="zoom-in" data-aos-delay="200"><i data-lucide="shield" class="icon"></i><h4>Cybersecurity</h4></div>
-    <div class="card" data-aos="zoom-in" data-aos-delay="300"><i data-lucide="gamepad-2" class="icon"></i><h4>Game Development</h4></div>
-    <div class="card" data-aos="zoom-in" data-aos-delay="400"><i data-lucide="globe" class="icon"></i><h4>Web Dev</h4></div>
-    <div class="card" data-aos="zoom-in" data-aos-delay="200"><i data-lucide="blend" class="icon"></i><h4>3D modeling</h4></div>
-    <div class="card" data-aos="zoom-in" data-aos-delay="300"><i data-lucide="diamond" class="icon"></i><h4>UI & UX</h4></div>
-    <div class="card" data-aos="zoom-in" data-aos-delay="300"><i data-lucide="brush" class="icon"></i><h4>Artist</h4></div>
+  <p>Tools & technologies I use to build games, tools and art.</p>
+
+  <div class="skills-grid">
+    <!-- Skill item template
+      data-percent -> number 0-100
+      data-label  -> skill name
+    -->
+    <div class="skill" data-percent="95" data-label="Python" aria-label="Python 95 percent">
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 100 100" role="img" aria-hidden="true">
+          <circle class="ring-bg" cx="50" cy="50" r="40" />
+          <circle class="ring-fg" cx="50" cy="50" r="40" />
+        </svg>
+        <div class="skill-icon">
+          <i data-lucide="terminal"></i>
+        </div>
+      </div>
+      <div class="skill-meta">
+        <div class="skill-name">Python</div>
+        <div class="skill-percent">95%</div>
+      </div>
+    </div>
+
+    <div class="skill" data-percent="90" data-label="Godot" aria-label="Godot 90 percent">
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 100 100">
+          <circle class="ring-bg" cx="50" cy="50" r="40" />
+          <circle class="ring-fg" cx="50" cy="50" r="40" />
+        </svg>
+        <div class="skill-icon">
+          <i data-lucide="gamepad-2"></i>
+        </div>
+      </div>
+      <div class="skill-meta">
+        <div class="skill-name">Godot</div>
+        <div class="skill-percent">90%</div>
+      </div>
+    </div>
+
+    <div class="skill" data-percent="85" data-label="Java" aria-label="Java 85 percent">
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 100 100">
+          <circle class="ring-bg" cx="50" cy="50" r="40" />
+          <circle class="ring-fg" cx="50" cy="50" r="40" />
+        </svg>
+        <div class="skill-icon">
+          <i data-lucide="code"></i>
+        </div>
+      </div>
+      <div class="skill-meta">
+        <div class="skill-name">Java</div>
+        <div class="skill-percent">85%</div>
+      </div>
+    </div>
+
+    <div class="skill" data-percent="80" data-label="Cybersecurity" aria-label="Cybersecurity 80 percent">
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 100 100">
+          <circle class="ring-bg" cx="50" cy="50" r="40" />
+          <circle class="ring-fg" cx="50" cy="50" r="40" />
+        </svg>
+        <div class="skill-icon">
+          <i data-lucide="shield"></i>
+        </div>
+      </div>
+      <div class="skill-meta">
+        <div class="skill-name">Cybersecurity</div>
+        <div class="skill-percent">80%</div>
+      </div>
+    </div>
+
+    <div class="skill" data-percent="75" data-label="3D Modeling" aria-label="3D modeling 75 percent">
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 100 100">
+          <circle class="ring-bg" cx="50" cy="50" r="40" />
+          <circle class="ring-fg" cx="50" cy="50" r="40" />
+        </svg>
+        <div class="skill-icon">
+          <i data-lucide="blend"></i>
+        </div>
+      </div>
+      <div class="skill-meta">
+        <div class="skill-name">3D Modeling</div>
+        <div class="skill-percent">75%</div>
+      </div>
+    </div>
+
+    <div class="skill" data-percent="80" data-label="Web Dev" aria-label="Web development 80 percent">
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 100 100">
+          <circle class="ring-bg" cx="50" cy="50" r="40" />
+          <circle class="ring-fg" cx="50" cy="50" r="40" />
+        </svg>
+        <div class="skill-icon">
+          <i data-lucide="globe"></i>
+        </div>
+      </div>
+      <div class="skill-meta">
+        <div class="skill-name">Web Dev</div>
+        <div class="skill-percent">80%</div>
+      </div>
+    </div>
   </div>
 </section>
+
+<!-- STYLES -->
+<style>
+  /* container */
+  .skills-section { text-align: center; padding-bottom: 3rem; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.4rem;
+    align-items: center;
+    justify-items: center;
+    margin-top: 1.6rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .skill {
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    color: #fff;
+  }
+
+  .ring-wrap {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    display: inline-grid;
+    place-items: center;
+  }
+
+  svg.ring { width: 100%; height: 100%; transform: rotate(-90deg); }
+
+  .ring-bg {
+    fill: none;
+    stroke: rgba(255,255,255,0.06);
+    stroke-width: 10;
+  }
+
+  .ring-fg {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-dasharray: 251.2; /* 2πr where r=40 -> ~251.2 */
+    stroke-dashoffset: 251.2;
+    filter: drop-shadow(0 0 8px var(--accent));
+    transition: stroke-dashoffset 1.2s cubic-bezier(.2,.9,.2,1);
+  }
+
+  .skill-icon {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .skill-icon i { width: 26px; height: 26px; color: var(--accent); }
+
+  .skill:hover .skill-icon {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+  }
+
+  .skill-name { font-weight: 600; font-size: 0.95rem; color: #eaeaea; }
+  .skill-percent { font-size: 0.88rem; opacity: 0.85; }
+
+  /* small screens */
+  @media (max-width: 480px) {
+    .ring-wrap { width: 92px; height: 92px; }
+    .skill { width: 140px; }
+  }
+</style>
+
+<!-- JS (animate rings and show percent) -->
+<script>
+  // Wait until DOM is ready and lucide icons are created
+  document.addEventListener("DOMContentLoaded", () => {
+    const skills = document.querySelectorAll(".skill");
+
+    // Helper: circumference for r=40
+    const C = 2 * Math.PI * 40; // ~251.2
+
+    skills.forEach((el, idx) => {
+      const percent = parseInt(el.dataset.percent || "0", 10);
+      const ringFg = el.querySelector(".ring-fg");
+      const percentLabel = el.querySelector(".skill-percent");
+
+      // Animate when element scrolls into view (simple intersection observer)
+      const io = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // compute dashoffset
+            const targetOffset = C * (1 - Math.min(Math.max(percent, 0), 100) / 100);
+            // add slight stagger
+            setTimeout(() => {
+              ringFg.style.strokeDashoffset = targetOffset;
+            }, idx * 120);
+
+            // animate numeric count
+            let start = 0;
+            const duration = 900;
+            const startTime = performance.now();
+            function tick(now) {
+              const elapsed = now - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const value = Math.floor(progress * percent);
+              percentLabel.textContent = `${value}%`;
+              if (progress < 1) requestAnimationFrame(tick);
+              else percentLabel.textContent = `${percent}%`;
+            }
+            requestAnimationFrame(tick);
+
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: 0.35 });
+
+      io.observe(el);
+    });
+  });
+</script>
+
+
+<section class="section">
+  <h2>Certificates</h2>
+  <p>Some of my achievements and certifications.</p>
+
+  <section class="portfolio-grid">
+    <div class="card" data-aos="fade-up">
+      <img src="certificates/cert1.jpg" alt="Certificate 1" class="certificate-img">
+      <h4>Cybersecurity VAPT Internship</h4>
+      <p>Issued by SkyLena Info Tech</p>
+    </div>
+
+    <div class="card" data-aos="fade-up" data-aos-delay="100">
+      <img src="certificates/cert2.jpg" alt="Certificate 2" class="certificate-img">
+      <h4>Game Development Workshop</h4>
+      <p>Issued by Tech Sonic</p>
+    </div>
+
+    <div class="card" data-aos="fade-up" data-aos-delay="200">
+      <img src="certificates/cert3.jpg" alt="Certificate 3" class="certificate-img">
+      <h4>Python Programming</h4>
+      <p>Issued by [Organization Name]</p>
+    </div>
+  </section>
+</section>
+
+<style>
+  .certificate-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  .certificate-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  }
+
+  /* Optional: Lightbox effect */
+  .lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+  }
+</style>
+
+<script>
+  // Lightbox functionality
+  document.querySelectorAll('.certificate-img').forEach(img => {
+    img.addEventListener('click', () => {
+      const lightbox = document.createElement('div');
+      lightbox.classList.add('lightbox');
+      lightbox.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
+      document.body.appendChild(lightbox);
+      lightbox.style.display = 'flex';
+      lightbox.addEventListener('click', () => lightbox.remove());
+    });
+  });
+</script>
+
+
+<section class="section contact-info" data-aos="fade-up">
+  <h2>Contact Info</h2>
+  <p>Let’s connect and collaborate!</p>
+  <ul>
+    <li>
+      <i data-lucide="phone"></i>
+      <a href="tel:+919361947452">+91 9361947452</a>
+    </li>
+    <li>
+      <i data-lucide="mail"></i>
+      <a href="mailto:logeshwara554@gmail.com">logeshwara554@gmail.com</a>
+    </li>
+    <li>
+      <i data-lucide="linkedin"></i>
+      <a href="https://linkedin.com/in/logeshwara-palanisamy" target="_blank">linkedin.com/in/logeshwara-palanisamy</a>
+    </li>
+    <li>
+      <i data-lucide="github"></i>
+      <a href="https://github.com/logeshwara554" target="_blank">github.com/logeshwara554</a>
+    </li>
+  </ul>
+</section>
+
+<style>
+  .contact-info {
+    text-align: center;
+  }
+
+  .contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .contact-info li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+  }
+
+  .contact-info i {
+    width: 24px;
+    height: 24px;
+    color: var(--accent);
+    animation: glowPulse 2s infinite;
+  }
+
+  .contact-info a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
+
+  .contact-info a:hover {
+    color: var(--accent);
+    text-shadow: 0 0 8px var(--accent);
+  }
+
+  @keyframes glowPulse {
+    0% { text-shadow: 0 0 5px var(--accent); opacity: 1; }
+    50% { text-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent); opacity: 0.8; }
+    100% { text-shadow: 0 0 5px var(--accent); opacity: 1; }
+  }
+</style>
 
 
 <section class="section">
@@ -372,13 +884,6 @@ body {
 </section>
 
 
-
-
-
-
-
-
-
 <script src="three.r134.min.js"></script>
 <script src="vanta.birds.min.js"></script>
 <script>
@@ -393,16 +898,6 @@ VANTA.BIRDS({
   scaleMobile: 1.00
 })
 </script>
-
-
-
-
-
-
-
-
-
-
 
 
   <script>
@@ -642,4 +1137,3 @@ function toggleMode() {
 </body>
 </body>
 </html>
-
